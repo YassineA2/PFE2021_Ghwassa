@@ -1,0 +1,431 @@
+<?xml version="1.0"?>
+<robot name="ghwassa">
+
+<!-- base link-->
+	<link name="base_link">
+		<inertial>
+			<mass value="300"/>
+			<inertia ixx="12.5" ixy="0.0" ixz="0.0" iyy="62.5" iyz="0.0" izz="62.5"/>
+		</inertial>
+		<visual>
+			<origin rpy="0 0 0" xyz="0 0 0"/>
+			<geometry>
+			<mesh filename="package://ghwassa_description/meshes/body.dae"/>
+			<!--<box size="1.5 0.5 0.5"/>-->
+
+			</geometry>
+		</visual>
+		<collision>
+			<origin rpy="0 0 0" xyz="0 0 0"/>
+			<geometry>
+			<box size="1.5 0.5 0.5"/>
+			</geometry>
+		</collision>
+	</link>
+	<gazebo reference="base_link">
+		<dampingFactor>0.01</dampingFactor>
+		<mu1>0.2</mu1>
+		<mu2>0.2</mu2>
+		<material>Gazebo/White</material>
+	</gazebo>
+
+<!-- right thruster link-->
+	<link name="right_thruster">
+		<inertial>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<mass value="0.09"/>
+			<inertia ixx="0.00008175" ixy="0" ixz="0" iyy="0.00008175" iyz="0" izz="0.000162" />
+		</inertial>
+	      
+		<visual name="right_blade1_visual">
+			<origin xyz="0.035 0.0 0" rpy="0.7853981633974483 0 0"/>
+			<geometry>
+				<box size="0.05 0.02 0.005"/>
+			</geometry>         
+		</visual>
+		<collision name="right_blade1_collision">
+			<origin xyz="0.035 0.0 0" rpy="0.7853981633974483 0 0"/>
+			<geometry>
+				<box size="0.05 0.02 0.005"/>
+			</geometry>
+		</collision>
+	      
+		<visual name="right_blade2_visual">
+			<origin xyz="0.0 0.035 0" rpy="0.7853981633974483 0 1.5707963267948966"/>
+			<geometry>
+				<box size="0.05 0.02 0.005"/>
+			</geometry>
+		</visual>
+		<collision name="right_blade2_collision">
+			<origin xyz="0.0 0.035 0" rpy="0.7853981633974483 0 1.5707963267948966"/>
+			<geometry>
+				<box size="0.05 0.02 0.005"/>
+			</geometry>
+		</collision>
+	      
+		<visual name="right_blade3_visual">
+			<origin xyz="-0.035 -0.0 0" rpy="-0.7853981633974483 0 0.0"/>
+			<geometry>
+				<box size="0.05 0.02 0.005"/>
+			</geometry>
+		</visual>
+		<collision name="right_blade3_collision">
+			<origin xyz="-0.035 -0.0 0" rpy="-0.7853981633974483 0 0.0"/>
+			<geometry>
+				<box size="0.05 0.02 0.005"/>
+			</geometry>
+		</collision>
+	      
+		<visual name="right_blade4_visual">
+			<origin xyz="-0.0 -0.035 0" rpy="-0.7853981633974483 0 1.5707963267948966"/>
+			<geometry>
+				<box size="0.05 0.02 0.005"/>
+			</geometry>
+		</visual>
+		<collision name="right_blade4_collision">
+			<origin xyz="-0.0 -0.035 0" rpy="-0.7853981633974483 0 1.5707963267948966"/>
+			<geometry>
+				<box size="0.05 0.02 0.005"/>
+			</geometry>
+		</collision>    
+	</link>
+	<gazebo reference="right_thruster">
+		<mu1>0.2</mu1>
+		<mu2>0.2</mu2>
+		<material>Gazebo/Red</material>
+	</gazebo>
+
+<!-- left thruster link-->
+	<link name="left_thruster">
+		<inertial>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<mass value="0.09"/>
+			<inertia ixx="0.00008175" ixy="0" ixz="0" iyy="0.00008175" iyz="0" izz="0.000162" />
+		</inertial>
+		<visual name="left_blade1_visual">
+			<origin xyz="0.035 0.0 0" rpy="0.7853981633974483 0 0"/>
+			<geometry>
+				<box size="0.05 0.02 0.005"/>
+			</geometry>         
+		</visual>
+		<collision name="left_blade1_collision">
+			<origin xyz="0.035 0.0 0" rpy="0.7853981633974483 0 0"/>
+			<geometry>
+				<box size="0.05 0.02 0.005"/>
+			</geometry>
+		</collision>
+	      
+		<visual name="left_blade2_visual">
+			<origin xyz="0.0 0.035 0" rpy="0.7853981633974483 0 1.5707963267948966"/>
+			<geometry>
+				<box size="0.05 0.02 0.005"/>
+			</geometry>
+		</visual>
+		<collision name="left_blade2_collision">
+			<origin xyz="0.0 0.035 0" rpy="0.7853981633974483 0 1.5707963267948966"/>
+			<geometry>
+				<box size="0.05 0.02 0.005"/>
+			</geometry>
+		</collision>
+	      
+		<visual name="left_blade3_visual">
+			<origin xyz="-0.035 -0.0 0" rpy="-0.7853981633974483 0 0.0"/>
+			<geometry>
+				<box size="0.05 0.02 0.005"/>
+			</geometry>
+		</visual>
+		<collision name="left_blade3_collision">
+			<origin xyz="-0.035 -0.0 0" rpy="-0.7853981633974483 0 0.0"/>
+			<geometry>
+				<box size="0.05 0.02 0.005"/>
+			</geometry>
+		</collision>
+	      
+		<visual name="left_blade4_visual">
+			<origin xyz="-0.0 -0.035 0" rpy="-0.7853981633974483 0 1.5707963267948966"/>
+			<geometry>
+				<box size="0.05 0.02 0.005"/>
+			</geometry>
+		</visual>
+		<collision name="left_blade4_collision">
+			<origin xyz="-0.0 -0.035 0" rpy="-0.7853981633974483 0 1.5707963267948966"/>
+			<geometry>
+				<box size="0.05 0.02 0.005"/>
+			</geometry>
+		</collision>    
+	</link>
+	<gazebo reference="left_thruster">
+		<mu1>0.2</mu1>
+		<mu2>0.2</mu2>
+		<material>Gazebo/Red</material>
+	</gazebo>
+
+<!-- right case thruster link -->
+	<link name="right_case_thruster">
+		<inertial>
+			<mass value="0.005"/>
+			<inertia ixx="0.00000029" ixy="0.0" ixz="0.0" iyy="0.00000029" iyz="0.0" izz="0.00000025"/>
+		</inertial>
+		<visual>
+			<origin rpy="0 0 0" xyz="0 0 0"/>
+			<geometry>
+				<cylinder length="0.02" radius="0.01"/>
+			</geometry>
+		</visual>
+		<collision>
+			<origin rpy="0 0 0" xyz="0 0 0"/>
+			<geometry>
+			<cylinder length="0.02" radius="0.01"/>
+			</geometry>
+		</collision>
+	</link>
+	<gazebo reference="right_case_thruster">
+		<mu1>0.2</mu1>
+		<mu2>0.2</mu2>
+		<material>Gazebo/Blue</material>
+	</gazebo>
+
+<!-- left case thruster link -->
+	<link name="left_case_thruster">
+		<inertial>
+			<mass value="0.005"/>
+			<inertia ixx="0.00000029" ixy="0.0" ixz="0.0" iyy="0.00000029" iyz="0.0" izz="0.00000025"/>
+		</inertial>
+		<visual>
+			<origin rpy="0 0 0" xyz="0 0 0"/>
+			<geometry>
+			<cylinder length="0.02" radius="0.01"/>
+			</geometry>
+		</visual>
+		<collision>
+			<origin rpy="0 0 0" xyz="0 0 0"/>
+			<geometry>
+			<cylinder length="0.02" radius="0.01"/>
+			</geometry>
+		</collision>
+	</link>
+	<gazebo reference="left_case_thruster">
+		<mu1>0.2</mu1>
+		<mu2>0.2</mu2>
+		<material>Gazebo/Blue</material>
+	</gazebo>
+
+<!-- joints -->
+	  <joint name="base_to_right_thruster" type="revolute">
+		  <parent link="right_case_thruster"/>
+		  <child link="right_thruster"/>
+		  <origin xyz="0 0 0" rpy="0 0 0" />    
+		  <axis xyz="0 0 1" />
+		  <dynamics damping="0.01" friction="0.0"/>
+		  <limit lower="-1e+12" upper="1e+12" effort="50" velocity="300"/>
+	  </joint>
+
+	  <joint name="base_to_left_thruster" type="revolute">
+		  <parent link="left_case_thruster"/>
+		  <child link="left_thruster"/>
+		  <origin xyz="0 0 0" rpy="0 0 0" />
+		  <axis xyz="0 0 1" />
+		  <dynamics damping="0.01" friction="0.0"/>  <!-- play with this value-->
+		  <limit lower="-1e+12" upper="1e+12" effort="50" velocity="300"/>
+	  </joint>
+
+	  <joint name="base_to_right_case_thruster" type="revolute">
+		  <parent link="base_link"/>
+		  <child link="right_case_thruster"/>
+		  <origin xyz="0 -0.32 0" rpy="0 0 0" />
+		  <axis xyz="0 1 0" />
+		  <dynamics damping="0.1" friction="0.0"/>
+		  <limit lower="-3.14" upper="3.14" effort="50" velocity="0.5"/>
+	  </joint>
+
+	  <joint name="base_to_left_case_thruster" type="revolute">
+		  <parent link="base_link"/>
+		  <child link="left_case_thruster"/>
+		  <origin xyz="0 0.32 0" rpy="0 0 0" />
+			<axis xyz="0 1 0" />
+		  <dynamics damping="0.1" friction="0.0"/>
+		  <limit lower="-3.14" upper="3.14" effort="50" velocity="0.5"/>
+	  </joint>
+
+<!-- transmission -->
+	<transmission name="trans1">
+		<type>transmission_interface/SimpleTransmission</type>
+		<joint name="base_to_right_thruster">
+			<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+		</joint>
+		<actuator name="motor1">
+			<mechanicalReduction>50</mechanicalReduction>
+			<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+		</actuator>
+	</transmission>
+
+	<transmission name="trans2">
+		<type>transmission_interface/SimpleTransmission</type>
+		<joint name="base_to_left_thruster">
+			<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+		</joint>
+		<actuator name="motor2">
+			<mechanicalReduction>50</mechanicalReduction>
+			<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+		</actuator>
+	</transmission>
+	<transmission name="trans3">
+		<type>transmission_interface/SimpleTransmission</type>
+		<joint name="base_to_right_case_thruster">
+			<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+		</joint>
+		<actuator name="motor3">
+			<mechanicalReduction>50</mechanicalReduction>
+			<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+		</actuator>
+	</transmission>
+	<transmission name="trans4">
+		<type>transmission_interface/SimpleTransmission</type>
+		<joint name="base_to_left_case_thruster">
+			<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+		</joint>
+		<actuator name="motor4">
+			<mechanicalReduction>50</mechanicalReduction>
+			<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+		</actuator>
+	</transmission>
+
+<!-- plugins -->
+	<gazebo>
+		<plugin name="BuoyancyPlugin" filename="libBuoyancyPlugin.so">
+			<fluid_density>800</fluid_density>
+		</plugin>
+
+		<plugin name="right_submarine_propeller_1" filename="libLiftDragPlugin.so">
+			<air_density>800</air_density>
+			<cla>1.2535816618911175</cla>
+			<cla_stall>-1.4326647564469914</cla_stall>
+			<cda>0</cda>
+			<cda_stall>1.4326647564469914</cda_stall>
+			<alpha_stall>1.396</alpha_stall>
+			<a0>0</a0>
+
+			<area>0.001</area>
+			<upward>0 -1 1</upward>
+			<forward>0 1 1</forward>
+			<link_name>right_thruster</link_name>
+			<cp>0.035 0 0</cp>
+		</plugin>
+
+		<plugin name="right_submarine_propeller_2" filename="libLiftDragPlugin.so">
+			<air_density>800</air_density>
+			<cla>1.2535816618911175</cla>
+			<cla_stall>-1.4326647564469914</cla_stall>
+			<cda>0</cda>
+			<cda_stall>1.4326647564469914</cda_stall>
+			<alpha_stall>1.396</alpha_stall>
+			<a0>0</a0>
+
+			<area>0.001</area>
+			<upward>1 0 1</upward>
+			<forward>-1 0 1</forward>
+			<link_name>right_thruster</link_name>
+			<cp>0 0.035 0</cp>
+		</plugin>
+
+		<plugin name="right_submarine_propeller_3" filename="libLiftDragPlugin.so">
+			<air_density>800</air_density>
+			<cla>1.2535816618911175</cla>
+			<cla_stall>-1.4326647564469914</cla_stall>
+			<cda>0</cda>
+			<cda_stall>1.4326647564469914</cda_stall>
+			<alpha_stall>1.396</alpha_stall>
+			<a0>0</a0>
+
+			<area>0.001</area>
+			<upward>0 1 1</upward>
+			<forward>0 -1 1</forward>
+			<link_name>right_thruster</link_name>
+			<cp>-0.035 0 0</cp>
+		</plugin>
+
+		<plugin name="right_submarine_propeller_4" filename="libLiftDragPlugin.so">
+			<air_density>800</air_density>
+			<cla>1.2535816618911175</cla>
+			<cla_stall>-1.4326647564469914</cla_stall>
+			<cda>0</cda>
+			<cda_stall>1.4326647564469914</cda_stall>
+			<alpha_stall>1.396</alpha_stall>
+			<a0>0</a0>
+
+			<area>0.001</area>
+			<upward>1 0 1</upward>
+			<forward>-1 0 1</forward>
+			<link_name>right_thruster</link_name>
+			<cp>0 -0.035 0</cp>
+		</plugin>
+
+		<plugin name="left_submarine_propeller_1" filename="libLiftDragPlugin.so">
+			<air_density>800</air_density>
+			<cla>1.2535816618911175</cla>
+			<cla_stall>-1.4326647564469914</cla_stall>
+			<cda>0</cda>
+			<cda_stall>1.4326647564469914</cda_stall>
+			<alpha_stall>1.396</alpha_stall>
+			<a0>0</a0>
+
+			<area>0.001</area>
+			<upward>0 -0.7071067811865476 0.7071067811865475</upward>
+			<forward>0 0.7071067811865475 0.7071067811865476</forward>
+			<link_name>left_thruster</link_name>
+			<cp>0.035 0 0</cp>
+		</plugin>
+
+		<plugin name="left_submarine_propeller_2" filename="libLiftDragPlugin.so">
+			<air_density>800</air_density>
+			<cla>1.2535816618911175</cla>
+			<cla_stall>-1.4326647564469914</cla_stall>
+			<cda>0</cda>
+			<cda_stall>1.4326647564469914</cda_stall>
+			<alpha_stall>1.396</alpha_stall>
+			<a0>0</a0>
+
+			<area>0.001</area>
+			<upward>0.7071067811865476 0 0.7071067811865475</upward>
+			<forward>-0.7071067811865475 0 0.7071067811865476</forward>
+			<link_name>left_thruster</link_name>
+			<cp>0 0.035 0</cp>
+		</plugin>
+
+		<plugin name="left_submarine_propeller_3" filename="libLiftDragPlugin.so">
+			<air_density>800</air_density>
+			<cla>1.2535816618911175</cla>
+			<cla_stall>-1.4326647564469914</cla_stall>
+			<cda>0</cda>
+			<cda_stall>1.4326647564469914</cda_stall>
+			<alpha_stall>1.396</alpha_stall>
+			<a0>0</a0>
+
+			<area>0.001</area>
+			<upward>0 0.7071067811865475 0.7071067811865476</upward>
+			<forward>0 -0.7071067811865476 0.7071067811865475</forward>
+			<link_name>left_thruster</link_name>
+			<cp>-0.035 0 0</cp>
+		</plugin>
+
+		<plugin name="left_submarine_propeller_4" filename="libLiftDragPlugin.so">
+			<air_density>800</air_density>
+			<cla>1.2535816618911175</cla>
+			<cla_stall>-1.4326647564469914</cla_stall>
+			<cda>0</cda>
+			<cda_stall>1.4326647564469914</cda_stall>
+			<alpha_stall>1.396</alpha_stall>
+			<a0>0</a0>
+
+			<area>0.001</area>
+			<upward>0.7071067811865475 0 0.7071067811865476</upward>
+			<forward>-0.7071067811865476 0 0.7071067811865475</forward>
+			<link_name>left_thruster</link_name>
+			<cp>0 -0.035 0</cp>
+		</plugin>
+
+		<plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+			<robotNamespace>/ghwassa</robotNamespace>
+		</plugin>
+	</gazebo>
+</robot>
